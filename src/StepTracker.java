@@ -5,7 +5,6 @@ public class StepTracker {
     MonthData[] monthToData = new MonthData[12];
     int goalByStepsPerDay = 10000;
     Converter converter = new Converter();
-    MonthData monthData;
 
     public StepTracker(Scanner scan) {
         scanner = scan;
@@ -18,14 +17,14 @@ public class StepTracker {
     void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int month = scanner.nextInt();
-            if ((month > 12) | (month < 1)) {
+            if ((month > 12) || (month < 1)) {
                 System.out.println("Номер вводимого месяца должен быть от 1 до 12 включительно");
                 return;
             }
 
         System.out.println("Введите день от 1 до 30 (включительно)");
         int day = scanner.nextInt();
-            if ((day > 30) | (day < 1)) {
+            if ((day > 30) || (day < 1)) {
                 System.out.println("Номер вводимого дня должен быть от 1 до 30 включительно");
                 return;
             }
@@ -55,12 +54,12 @@ public class StepTracker {
     void printStatistic() {
         System.out.println("Введите номер месяца");
         int month = scanner.nextInt();
-        if ((month > 12) | (month < 1)) {
+        if ((month > 12) || (month < 1)) {
             System.out.println("Номер вводимого месяца должен быть от 1 до 12 включительно");
             return;
         }
 
-        monthData = monthToData[month - 1];
+        MonthData monthData = monthToData[month - 1];
         int sumSteps = monthData.sumStepsFromMonth();
 
         System.out.println("Общая статистика по дням:");
